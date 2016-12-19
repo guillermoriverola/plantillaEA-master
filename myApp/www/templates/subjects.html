@@ -1,0 +1,43 @@
+<ion-view view-title="Lista de asignaturas">
+  <ion-content>
+    <div class="list list-inset">
+      <h4 style="text-align: center">Nova Asignatura</h4>
+      <label class="item item-input">
+        <input type="text" placeholder="Nom de la nova assignatura" ng-model="newAssignatura.nom" required>
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Periode" ng-model="newAssignatura.when" required>
+      </label>
+      <div class="button-bar">
+        <a class="button" ng-click="registrarAsignatura()" ng-disabled="myForm.$invalid || selected">Registrar Assignatura</a>
+      </div>
+    </div>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="text" placeholder="Buscar per Nom" ng-model="newAssignatura.nom" required>
+      </label>
+      <div class="button-bar">
+        <a class="button" ng-click="buscarAssignaturanom()" ng-disabled="myForm.$invalid || selected">Buscar</a>
+      </div>
+    </div>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="text" placeholder="Buscar per Periode" ng-model="newAssignatura.when" required>
+      </label>
+      <div class="button-bar">
+        <a class="button" ng-click="buscarAssignaturesperiode()" ng-disabled="myForm.$invalid || selected">Buscar</a>
+      </div>
+    </div>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="assignatura in assignatures" href="#/app/subjects/{{assignatura._id}}" ng-click="selectSubject(assignatura._id)">
+        <div class="button-bar">
+          <h2>Asignatura: {{assignatura.nom}}</h2>
+
+        </div>
+      </ion-item>
+    </ion-list>
+
+
+  </ion-content>
+</ion-view>

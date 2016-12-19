@@ -1,0 +1,83 @@
+<div class="jumbotron text-center">
+    <h3>Pàgina assignatures</h3>
+    <p>{{ message }}</p>
+    <br>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-0">
+                <table class="table table-striped">
+                    <tr class="info">
+                        <td><b>Assignatures</b></td>
+                        <td>Eliminar</td>
+                    </tr>
+                    <tr ng-repeat="assignatura in assignatures">
+                        <td><text ng-click="selectAssignatura(assignatura)">{{assignatura.nom}}</text></td>
+                        <td><button ng-click="deleteAssignatura(assignatura._id)">x</button></td>
+                    </tr>
+                </table>
+                <input type="text" class="form-control input-lg text-center" placeholder="Nom de la nova assignatura" ng-model="newAssignatura.nom">
+                <br>
+                <input type="text" class="form-control input-lg text-center" placeholder="Periode" ng-model="newAssignatura.when">
+                <br>
+                <button type="submit" class="btn btn-success btn-lg" ng-click="addAssignatura()">Afegir assignatura</button>
+            </div>
+
+            <div class="col-sm-3 col-sm-offset-1 text-center" ng-show="table1">
+                <form name="myForm">
+                    <div class="form-group">
+                        <table class="table table-striped">
+                            <tr class="info">
+                                <td><b>Detalls de {{selectedAssignatura.nom}}:</b></td>
+                            </tr>
+                            <tr>
+                                <td><text>Periode: {{ selectedAssignatura.when }}</text></td>
+                            </tr>
+                            <tr>
+                                <td><text>Estudiantes: </text></td>
+                            </tr>
+                            <tr ng-repeat="estudiants in selectedAssignatura.estudiants">
+                                 <td><text ng-click="selectEstudiant(estudiants)">{{ estudiants }}</text></td>
+
+                            </tr>
+                            <!--<tr ng-repeat="names in estudiantsList">-->
+                                <!--<td><text>{{ names }}</text></td>-->
+                            <!--</tr>-->
+                        </table>
+
+                       <input type="text" class="form-control input-lg text-center" placeholder="Afegir nom del estudiant" ng-model="newEstudiant.estudiant" required>
+                        <br>
+
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg" ng-click="addEstudiant()">Afegir estudiant</button>
+                </form>
+            </div>
+
+            <div class="col-sm-3 col-sm-offset-1" ng-show="table2">
+                <form name="myForm">
+                    <div class="form-group">
+                        <table class="table table-striped">
+                            <tr class="info">
+                                <td><b>Detalls del alumne</b></td>
+                            </tr>
+                            <tr>
+                                <td><text>Nom: {{ estudiants.nom }}</text></td>
+                            </tr>
+                            <tr>
+                                <td><text>Direcció: {{ estudiants.direccio }}</text></td>
+                            </tr>
+                            <tr>
+                                <td><text>Tlf. Casa: {{ estudiants.telefons.casa }}</text></td>
+                            </tr>
+                            <tr>
+                                <td><text>Tlf. Trabajo: {{ estudiants.telefons.feina }}</text></td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>

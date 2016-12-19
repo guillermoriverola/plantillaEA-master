@@ -1,0 +1,30 @@
+<ion-view view-title="{{message}} {{selectedAssignatura.nom}}">
+  <ion-content>
+    <ion-list show-reorder="reordering">
+      <ion-item class="item-remove-animate item-icon-right">
+        <h1 id="perfilDefaultPage-heading2" style="color:#000000;">{{assignatura.nom}}</h1>
+        <h3 id="perfilDefaultPage-heading3" style="color:#000000;">{{assignatura.when}}</h3>
+        <button class="button icon ion-ios-trash" ng-click="deleteAssignatura(assignatura._id)"></button>
+        <ion-list id="perfilDefaultPage-list3">
+          <ion-item class="item-remove-animate item-icon-right" ng-repeat="estudiant in estudiantsList" href="#/app/students/{{estudiant._id}}" ng-click="selectEstudiant(estudiant._id)">
+            <h2>{{estudiant.nom}}</h2>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+
+
+    </ion-list>
+    <br><br><br>
+
+    <div class="list list-inset">
+      <h4 style="text-align: center">Añadir estudiante</h4>
+      <label class="item item-input">
+        <input type="text" placeholder="Nombre" ng-model="newEstudiant.estudiant" required>
+      </label>
+      <div class="button-bar">
+        <a class="button" ng-click="addEstudiant()" ng-disabled="myForm.$invalid || selected">Añadir</a>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view view-title="Home">
+  <ion-content>
+    <h3 style="text-align: center">Página principal</h3>
+    <p style="text-align: center">{{ message }}</p>
+
+    <h4 style="text-align: center">Mínimo Ionic Guillermo Riverola</h4>
+
+    <div class="list list-inset">
+      <h4 style="text-align: center">Registrar estudiante</h4>
+      <label class="item item-input">
+        <input type="text" placeholder="Nombre" ng-model="newEstudiant.nom" required>
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Dirección" ng-model="newEstudiant.direccio" required>
+      </label>
+      <label class="item item-input">
+        <input type="number" placeholder="Teléfono casa" ng-model="newEstudiant.telefons.casa" required>
+      </label>
+      <label class="item item-input">
+        <input type="number" placeholder="Teléfono trabajo" ng-model="newEstudiant.telefons.feina" required>
+      </label>
+      <div class="button-bar">
+        <a class="button" ng-click="registrarEstudiante()" ng-disabled="myForm.$invalid || selected">Registrar Estudiant</a>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,25 @@
+<div class="jumbotron text-center">
+    <h3>Pàgina dels estudiants</h3>
+    <br>
+    <div class="container" ng-init = "getPersona()">
+
+        <div class="row">
+                <form name="myForm">
+                    <p> Formulari per modificar estudiants</p>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Nom" ng-model="modEstudiant.nom" required>
+                        <br>
+                        <input type="text" class="form-control input-lg text-center" placeholder="Direcció" ng-model="modEstudiant.direccio" required>
+                        <br>
+                        <input type="text" class="form-control input-lg text-center" placeholder="Teléfon casa" ng-model="modEstudiant.telefons.casa" required>
+                        <br>
+                        <input type="text" class="form-control input-lg text-center" placeholder="Teléfon feina" ng-model="modEstudiant.telefons.feina" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg" ng-click="modificarPersona(modEstudiant)" ng-disabled="myForm.$invalid || selected">Modificar</button>
+                    <!--<button type="submit" class="btn btn-warning btn-lg" ng-click="modificarPersona(newPersona)" ng-disabled="!newPersona.nombre || !newPersona.apellido || !newPersona.edad || !selected">Modificar</button>
+                    <button type="submit" class="btn btn-danger btn-lg" ng-click="borrarPersona(newPersona)" ng-disabled="!newPersona.nombre || !newPersona.apellido || !newPersona.edad || !selected">Borrar</button>!-->
+                </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,24 @@
+<ion-view view-title={{message}}>
+  <ion-content>
+    <ion-list show-reorder="reordering">
+      <div class="button-bar">
+        <a class="button" ng-click="getEstudiantsOrder()" ng-disabled="myForm.$invalid || selected">Ordenar</a>
+      </div>
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="estudiant in estudiants" href="#/app/students/{{estudiant._id}}" ng-click="selectEstudiant(estudiant._id)">
+        <button class="button icon ion-android-person"></button>
+        <h2>Nom: {{estudiant.nom}}</h2>
+
+      </ion-item>
+
+      <div class="list list-inset">
+        <label class="item item-input">
+          <input type="text" placeholder="Buscar per Nom" ng-model="filtre.nom" required>
+        </label>
+        <div class="button-bar">
+          <a class="button" ng-click="buscarEstudiantNom(filtro)" ng-disabled="myForm.$invalid || selected">Buscar</a>
+        </div>
+      </div>
+    </ion-list>
+    <br><br><br>
+  </ion-content>
+</ion-view>

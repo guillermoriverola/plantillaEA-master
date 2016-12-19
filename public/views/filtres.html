@@ -1,0 +1,74 @@
+<div class="jumbotron text-center">
+    <h3>Pàgina filtres</h3>
+    <p>{{ message }}</p>
+    <br>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-0">
+                <table class="table table-striped">
+                    <tr class="info">
+                        <td><b>Assignatura</b></td>
+                    </tr>
+                    <tr ng-repeat="assignatura in assignatures">
+                        <td><text >{{assignatura.nom}}</text></td>
+                        <td><text >{{assignatura.when}}</text></td>
+                    </tr>
+                </table>
+                <br>
+                <input type="text" class="form-control input-lg text-center" placeholder="Nom de la nova assignatura" ng-model="newAssignaturas.nom">
+                <button type="submit" class="btn btn-success btn-lg" ng-click="getAssignaturanom()">Buscar assignatura per nom</button>
+                <br>
+                <br>
+                <input type="text" class="form-control input-lg text-center" placeholder="Periode" ng-model="newAssignaturas.when">
+                <button type="submit" class="btn btn-success btn-lg" ng-click="getAssignaturesperiode()">Buscar assignatura per periode</button>
+                <br>
+            </div>
+
+            <div class="col-sm-3 col-sm-offset-1 text-center" ng-show="table1">
+                <form name="myForm">
+                    <div class="form-group">
+                        <table class="table table-striped">
+                            <tr ng-repeat="assignatura in assignatures">
+                                <td><text ng-click="selectAssignatura(assignatura)">{{assignatura.nom}}</text></td>
+                                <!-- <td>{{ subject.estudiants }}</td>-->
+                                <td><button ng-click="deleteAssignatura(assignatura._id)">x</button></td>
+                            </tr>
+                        </table>
+
+                        <input type="text" class="form-control input-lg text-center" placeholder="Afegir nom del estudiant" ng-model="newEstudiant.estudiant" required>
+                        <br>
+
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg" ng-click="addEstudiant()">Afegir estudiant</button>
+                </form>
+            </div>
+
+            <div class="col-sm-3 col-sm-offset-1" ng-show="table2">
+                <form name="myForm">
+                    <div class="form-group">
+                        <table class="table table-striped">
+                            <tr class="info">
+                                <td><b>Detalls del alumne</b></td>
+                            </tr>
+                            <tr>
+                                <td><text>Nom: {{ estudiants.nom }}</text></td>
+                            </tr>
+                            <tr>
+                                <td><text>Direcció: {{ estudiants.direccio }}</text></td>
+                            </tr>
+                            <tr>
+                                <td><text>Tlf. Casa: {{ estudiants.telefons.casa }}</text></td>
+                            </tr>
+                            <tr>
+                                <td><text>Tlf. Trabajo: {{ estudiants.telefons.feina }}</text></td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>

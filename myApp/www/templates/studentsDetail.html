@@ -1,0 +1,20 @@
+<ion-view view-title={{message}}>
+  <ion-content>
+    <ion-list show-reorder="reordering">
+      <ion-item class="item-remove-animate item-icon-right">
+        <h1 id="perfilDefaultPage-heading2" style="color:#000000;">{{estudiant.nom}}</h1>
+        <!--<a href="#/edit/{{user.id}}" class="button button-light icon ion-edit"></a>-->
+        <!--<ion-reorder-button class="ion-drag" on-reorder="move(user, $fromIndex, $toIndex)"></ion-reorder-button>-->
+
+        <ion-list id="perfilDefaultPage-list3">
+          <ion-item id="perfilDefaultPage-list-item4">Localidad: {{estudiant.direccio}}</ion-item>
+          <ion-item id="perfilDefaultPage-list-item5">Teléfono de casa: {{estudiant.telefons.casa}}</ion-item>
+          <ion-item id="perfilDefaultPage-list-item6">Teléfono del trabajo: {{estudiant.telefons.feina}}</ion-item>
+        </ion-list>
+        <h4> </h4>
+        <button class="button button-assertive" ng-click="remove(estudiant._id)">Eliminar usuario</button>
+      </ion-item>
+    </ion-list>
+    <br><br><br>
+  </ion-content>
+</ion-view>
